@@ -13,5 +13,23 @@
       %input{:type => "Submit", :value => "Search"}
     = @q
     
-    %p something about dates here: calendar picker?
-    %textarea= @item.inspect
+    %h1 UK Parliament iCalendar
+    / http://en.wikipedia.org/wiki/ICalendar
+    / http://mongomapper.com/documentation/plugins/querying.html#all
+    %ul
+      %li House of Commons - /commons.ics
+      %ul
+        %li Main Chamber - /commons/chamber.ics
+        %li Westminster Hall - /commons/westminster-hall.ics
+        %li General Committees - /commons/general-committees.ics
+        %li Select Committees - /commons/select-committees.ics
+      %li House of Lords - /lords.ics
+      %ul
+        %li Main Chamber - /lords/chamber.ics
+        %li Grand Committees - /lords/grand-committees.ics
+        %li Select Committees - /lords/select-committees.ics
+
+    -# @items.each do |item|
+      %p
+        = item.title
+        
