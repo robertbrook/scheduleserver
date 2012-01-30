@@ -9,7 +9,7 @@
         = @q + ' (UK Parliament Calendars)'
     /[if lt IE 9]
       %script{:src=>'http://html5shim.googlecode.com/svn/trunk/html5.js'}
-    %link{:rel=>'stylesheet', :href=>'http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css'}
+    %link{:rel=>'stylesheet', :href=>'/css/bootstrap.min.css'}
     %style
       html, body {background-color: #eee;}
       body {padding-top: 40px;}
@@ -35,8 +35,8 @@
       .content
         .page-header
           %h1 UK Parliament Calendars <small>Supporting text</small>
-        / http://en.wikipedia.org/wiki/ICalendar
-        / http://mongomapper.com/documentation/plugins/querying.html#all
+          / http://en.wikipedia.org/wiki/ICalendar
+          / http://mongomapper.com/documentation/plugins/querying.html#all
         .row
           .span16
             .row
@@ -44,8 +44,8 @@
                 %h3 Houses of Parliament
             .row
               .span16
-                %a.btn RSS
-                %a.btn ICS
+                %a.btn{:href=>"http://services.parliament.uk/calendar/all.rss"} RSS
+                %a.btn{:href=>"/all.ics"} ICS
             .row
               .span8
                 %h4 House of Commons
@@ -55,13 +55,13 @@
                 %h4 House of Lords            
             .row
               .span8
-                %a.btn RSS
-                %a.btn ICS
+                %a.btn{:href=>"http://services.parliament.uk/calendar/commons.rss"} RSS
+                %a.btn{:href=>"/commons.ics"} ICS
               .span1
                 &nbsp;
               .span7
-                %a.btn RSS
-                %a.btn ICS
+                %a.btn{:href=>"http://services.parliament.uk/calendar/lords.rss"} RSS
+                %a.btn{:href=>"/lords.ics"} ICS
             .row
               .span16
                 &nbsp;
@@ -84,28 +84,28 @@
                 Select Cttees.
             .row
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/commons_main_chamber.rss"} RSS
+                %a.btn.small{:href=>"/commons_main_chamber.ics"} ICS
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/commons_westminster_hall.rss"} RSS
+                %a.btn.small{:href=>"/commons_westminster_hall.ics"} ICS
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/commons_general_committee.rss"} RSS
+                %a.btn.small{:href=>"/commons_general_committee.ics"} ICS
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/commons_select_committee.rss"} RSS
+                %a.btn.small{:href=>"/commons_select_committee.ics"} ICS
               .span1
                 &nbsp;
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/lords_main_chamber.rss"} RSS
+                %a.btn.small{:href=>"/lords_main_chamber.ics"} ICS
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/lords_grand_committee.rss"} RSS
+                %a.btn.small{:href=>"/lords_grand_committee.ics"} ICS
               .span2
-                %a.btn.small RSS
-                %a.btn.small ICS
+                %a.btn.small{:href=>"http://services.parliament.uk/calendar/lords_select_committee.rss"} RSS
+                %a.btn.small{:href=>"/lords_select_committee.ics"} ICS
         
     
         -# @items.each do |item|
@@ -113,4 +113,4 @@
             = item.title
       %footer
         %p &copy UK Parliament
-            
+    
