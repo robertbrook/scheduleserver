@@ -1,35 +1,68 @@
-%html
+!!! 5
+%html{:lang=>'en'}
   %head
+    %meta{:charset=>'utf-8'}
     %title 
       - unless @q
-        rss2schedule
+        UK Parliament Calendars
       - else
-        = @q + ' (rss2schedule)'
-    %style 
-      body {width:38em;margin-left:8em;margin-top:4em;margin-bottom:4em;font-family:Helvetica,sans-serif;}
+        = @q + ' (UK Parliament Calendars)'
+    /[if lt IE 9]
+      %script{:src=>'http://html5shim.googlecode.com/svn/trunk/html5.js'}
+    %link{:rel=>'stylesheet', :href=>'http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css'}
+    %style
+      html, body {background-color: #eee;}
+      body {padding-top: 40px;}
+      div.container > footer p {text-align: center;}
+      div.container {width: 820px;}
+      div.content {background-color:#fff;padding: 20px;margin: 0 -20px;-webkit-border-radius: 0 0 6px 6px;-moz-border-radius: 0 0 6px 6px;border-radius: 0 0 6px 6px;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);box-shadow: 0 1px 2px rgba(0,0,0,.15);}
+      div.page-header {background-color: #f5f5f5;padding: 20px 20px 10px;margin: -20px -20px 20px;}
+      div.topbar .btn {border: 0;} 
   %body
-    %form#search
-      %input{:name => "q", :value => @q}
-      %input{:type => "Submit", :value => "Search"}
-    = @q
+    .topbar
+      .fill
+        .container
+          %a.brand UK Parliament Calendars
+          %ul.nav
+            %li.active
+              %a Home
+            %li
+              %a About
+          %form.pull-right
+            %input.input-large{:type => 'search', :placeholder => 'Search', :name => "q", :value => @q}
+            %button.btn{:type => "Submit"} Search
+            
+    .container
+      .content
+        .page-header
+          %h1
+            UK Parliament Calendars
+            %small Supporting text
+        / http://en.wikipedia.org/wiki/ICalendar
+        / http://mongomapper.com/documentation/plugins/querying.html#all
+        .row
+          .span10
+            %h2 Main content
+          .span4
+            %h3 Secondary content
+        %ul
+          %li Houses of Parliament - /parliament.ics
+          %ul
+            %li House of Commons - /commons.ics
+            %ul
+              %li Main Chamber - /commons/chamber.ics
+              %li Westminster Hall - /commons/westminster-hall.ics
+              %li General Committees - /commons/general-committees.ics
+              %li Select Committees - /commons/select-committees.ics
+            %li House of Lords - /lords.ics
+            %ul
+              %li Main Chamber - /lords/chamber.ics
+              %li Grand Committees - /lords/grand-committees.ics
+              %li Select Committees - /lords/select-committees.ics
     
-    %h1 UK Parliament iCalendar
-    / http://en.wikipedia.org/wiki/ICalendar
-    / http://mongomapper.com/documentation/plugins/querying.html#all
-    %ul
-      %li House of Commons - /commons.ics
-      %ul
-        %li Main Chamber - /commons/chamber.ics
-        %li Westminster Hall - /commons/westminster-hall.ics
-        %li General Committees - /commons/general-committees.ics
-        %li Select Committees - /commons/select-committees.ics
-      %li House of Lords - /lords.ics
-      %ul
-        %li Main Chamber - /lords/chamber.ics
-        %li Grand Committees - /lords/grand-committees.ics
-        %li Select Committees - /lords/select-committees.ics
-
-    -# @items.each do |item|
-      %p
-        = item.title
-        
+        -# @items.each do |item|
+          %p
+            = item.title
+      %footer
+        %p &copy UK Parliament
+            
