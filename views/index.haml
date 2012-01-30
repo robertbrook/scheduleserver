@@ -14,7 +14,6 @@
       html, body {background-color: #eee;}
       body {padding-top: 40px;}
       div.container > footer p {text-align: center;}
-      div.container {width: 820px;}
       div.content {background-color:#fff;padding: 20px;margin: 0 -20px;-webkit-border-radius: 0 0 6px 6px;-moz-border-radius: 0 0 6px 6px;border-radius: 0 0 6px 6px;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);box-shadow: 0 1px 2px rgba(0,0,0,.15);}
       div.page-header {background-color: #f5f5f5;padding: 20px 20px 10px;margin: -20px -20px 20px;}
       div.topbar .btn {border: 0;} 
@@ -35,30 +34,79 @@
     .container
       .content
         .page-header
-          %h1
-            UK Parliament Calendars
-            %small Supporting text
+          %h1 UK Parliament Calendars <small>Supporting text</small>
         / http://en.wikipedia.org/wiki/ICalendar
         / http://mongomapper.com/documentation/plugins/querying.html#all
         .row
-          .span10
-            %h2 Main content
-          .span4
-            %h3 Secondary content
-        %ul
-          %li Houses of Parliament - /parliament.ics
-          %ul
-            %li House of Commons - /commons.ics
-            %ul
-              %li Main Chamber - /commons/chamber.ics
-              %li Westminster Hall - /commons/westminster-hall.ics
-              %li General Committees - /commons/general-committees.ics
-              %li Select Committees - /commons/select-committees.ics
-            %li House of Lords - /lords.ics
-            %ul
-              %li Main Chamber - /lords/chamber.ics
-              %li Grand Committees - /lords/grand-committees.ics
-              %li Select Committees - /lords/select-committees.ics
+          .span16
+            .row
+              .span16
+                %h3 Houses of Parliament
+            .row
+              .span16
+                %a.btn RSS
+                %a.btn ICS
+            .row
+              .span8
+                %h4 House of Commons
+              .span1
+                &nbsp;
+              .span7
+                %h4 House of Lords            
+            .row
+              .span8
+                %a.btn RSS
+                %a.btn ICS
+              .span1
+                &nbsp;
+              .span7
+                %a.btn RSS
+                %a.btn ICS
+            .row
+              .span16
+                &nbsp;
+            .row
+              .span2
+                Main Chamber
+              .span2
+                Westminster Hall
+              .span2
+                General Cttees.
+              .span2
+                Select Cttees.
+              .span1
+                &nbsp;
+              .span2
+                Main Chamber
+              .span2
+                Grand Cttees.
+              .span2
+                Select Cttees.
+            .row
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span1
+                &nbsp;
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+              .span2
+                %a.btn.small RSS
+                %a.btn.small ICS
+        
     
         -# @items.each do |item|
           %p
