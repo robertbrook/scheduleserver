@@ -30,3 +30,11 @@ get '/calendar.ics' do
   content_type 'text/calendar'
 end
 
+get "/:house.ics" do
+  #content_type 'text/calendar'
+  house = params[:house]
+  @items = Item.find_all_by_house(house, :order => "date DESC, start_time")
+end
+
+get "/:house/" do
+end
