@@ -1,10 +1,12 @@
+# encoding: utf-8
+
 require 'mongo_mapper'
 
 class Item
   include MongoMapper::Document
+  many :revisions
   
   key :event_id, String
-  key :rss_id, String
   key :source_file, String
   
   key :date, String
@@ -22,8 +24,12 @@ class Item
   
   key :created_at, Date
   key :updated_at, Date
+end
+
+class Revision
+  include MongoMapper::EmbeddedDocument
+  one :item
   
-  def store
-    #update existing record or create new one
-  end
+  key :date, Date
+  key :diff, Hash
 end
