@@ -30,10 +30,14 @@ get '/calendar.ics' do
   content_type 'text/calendar'
 end
 
-get "/:house.ics" do
+get "/commons.ics" do
   #content_type 'text/calendar'
-  house = params[:house]
-  @items = Item.find_all_by_house(house, :date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
+  @items = Item.find_all_by_house("Commons", :date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
+end
+
+get "/lords.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house("Lords", :date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
 end
 
 get "/commons_main_chamber.ics" do
@@ -63,10 +67,10 @@ end
 
 get "/lords_grand_committee.ics" do
   #content_type 'text/calendar'
-  @items = Item.find_all_by_house_and_sponsor("Lords", /^Grand Committee/, :order => "date DESC, start_time")
+  @items = Item.find_all_by_house_and_sponsor("Lords", /^Grand Committee/, :date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
 end
 
 get "/lords_select_committee.ics" do
   #content_type 'text/calendar'
-  @items = Item.find_all_by_house_and_sponsor("Lords", /^Select Committee/, :order => "date DESC, start_time")
+  @items = Item.find_all_by_house_and_sponsor("Lords", /^Select Committee/, :date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
 end
