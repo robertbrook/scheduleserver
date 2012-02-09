@@ -36,5 +36,37 @@ get "/:house.ics" do
   @items = Item.find_all_by_house(house, :order => "date DESC, start_time")
 end
 
-get "/:house/" do
+get "/commons_main_chamber.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_location("Commons", "Main Chamber", :order => "date DESC, start_time")
+end
+
+get "/commons_westminster_hall.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_location("Commons", "Westminster Hall", :order => "date DESC, start_time")
+end
+
+get "/commons_general_committee.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_sponsor("Commons", /^General Committee/, :order => "date DESC, start_time")
+end
+
+get "/commons_select_committee.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_sponsor("Commons", /^Select Committee/, :order => "date DESC, start_time")
+end
+
+get "/lords_main_chamber.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_location("Lords", "Main Chamber", :order => "date DESC, start_time")
+end
+
+get "/lords_grand_committee.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_sponsor("Lords", /^Grand Committee/, :order => "date DESC, start_time")
+end
+
+get "/lords_select_committee.ics" do
+  #content_type 'text/calendar'
+  @items = Item.find_all_by_house_and_sponsor("Lords", /^Select Committee/, :order => "date DESC, start_time")
 end
