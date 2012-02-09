@@ -27,7 +27,8 @@ get '/' do
 end
 
 get '/calendar.ics' do
-  content_type 'text/calendar'
+  #content_type 'text/calendar'
+  @items = Item.find_all(:date => { "$gte" => Time.now.strftime("%Y-%m-%d") }, :order => "date DESC, start_time")
 end
 
 get "/commons.ics" do
