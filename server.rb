@@ -18,11 +18,6 @@ helpers do
 end
 
 get '/' do
-  @q = params[:q]
-  
-  # @item = Item.first(:order => :title.desc)
-  @items = Item.all
-  
   haml :index
 end
 
